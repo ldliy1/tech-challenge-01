@@ -5,8 +5,7 @@
   "author": "Stephan Ng",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "mocha ./test --recursive"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.16.4"
