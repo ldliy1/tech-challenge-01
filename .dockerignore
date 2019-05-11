@@ -1,9 +1,7 @@
 .gitignore
 .travis.yml
-README.md
-LICENSE
 Dockerfile
+LICENSE
+README.md
 
-node_modules/*
-
-
+node_modules/
