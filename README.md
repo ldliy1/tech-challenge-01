@@ -4,7 +4,7 @@
 
 ## Objective
 
-Create a docker image containing a NodeJS application with REST API and a couple of endpoint.
+Create a docker image containing a NodeJS application with REST API and a couple of endpoints.
 
 ## Getting Started
 
@@ -12,10 +12,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+What things you need to install the software. It is assumed you have some understanding of how to use them.
 
 ``` sh
-Node
+Git
+Nodejs
 Docker
 ```
 
@@ -53,9 +54,9 @@ Run the app locally
 > npm start
 ```
 
-Then on any browser you should be able to access http://localhost:8080 to view "Hello World" and [/status](http://localhost:8080/status) to view the json output.
+Then on any browser you should be able to access http://localhost:8080/ to view "Hello World" and [/status](http://localhost:8080/status) to view the json output.
 
-### Running the container
+### Running the container locally
 
 You need to get the latest image from the Docker Hub Registry.
 
@@ -91,7 +92,7 @@ Explain what these tests test and why
 - Security principles are **not** being considered due to time constraint
 - No integration testing
 - No linting
-- My lack of knowledge. I started this code challenge with no knowledge/use of TravisCI and NodeJS but it's been great fun.
+- My lack of knowledge. I started this code challenge with no knowledge/use of TravisCI and NodeJS but it's been great fun :)
 
 ## License
 
