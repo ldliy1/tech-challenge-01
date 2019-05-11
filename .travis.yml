@@ -9,11 +9,9 @@ jobs:
   include:
     - stage: Test
       script:
-      - echo "Test stage"
-      - sed -i -e "s/SHA_COMMIT/${SHA}/" git-commit.json
-      - cat git-commit.json 
-    - stage: Build
-      script: 
+      - npm test
+    - stage: Build & Push
+      script:
       - echo "Build stage"
       - sed -i -e "s/SHA_COMMIT/${SHA}/" git-commit.json
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -21,7 +19,3 @@ jobs:
       - docker images
       - docker tag tech-challenge-01 $DOCKER_USERNAME/tech-challenge-01
       - docker push $DOCKER_USERNAME/tech-challenge-01
-    - stage: Publish
-      script:
-      - echo "Publish stage"
-      

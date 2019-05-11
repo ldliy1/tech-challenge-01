@@ -13,11 +13,13 @@ app.get('/', (req, res) => {
 
 var pjson = require('./package.json');
 var git_commit = require('./git-commit.json');
-var app_status = `{"myapplication":[ { "version": "${pjson.version}", "description": "${pjson.description}", "lastcommitsha": "${git_commit.sha}" } ] }`
 
 app.get('/status', (req, res) => {
-  res.status(200).send(app_status);
+  res.header("Content-Type",'application/json');
+  res.status(200).send(JSON.stringify({myapplication: [ { version: pjson.version, description: pjson.description, lastcommitsha: git_commit.sha } ] }, null, 4));
 });
 
 app.listen(PORT, HOST);
 console.log(`web app available on http://${HOST}:${PORT}`);
+
+module.exports = app;
