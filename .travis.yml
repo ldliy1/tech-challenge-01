@@ -9,6 +9,7 @@ jobs:
   include:
     - stage: Test
       script:
+      - npm install --save-dev mocha supertest
       - npm test
     - stage: Build & Push
       script:
