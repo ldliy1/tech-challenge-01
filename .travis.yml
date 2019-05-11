@@ -3,9 +3,6 @@ services:
 
 jobs:
   include:
-    - stage: Update
-      script:
-      - sha=$(git rev-parse --short HEAD) && sed -i -e "s/SHA_COMMIT/${sha}/" git-commit.json
     - stage: Test
       script:
       - echo "Test stage"
@@ -13,6 +10,7 @@ jobs:
     - stage: Build
       script: 
       - echo "Build stage"
+      - sha=$(git rev-parse --short HEAD) && sed -i -e "s/SHA_COMMIT/${sha}/" git-commit.json
     - stage: Deploy
       script:
       - echo "Deploy stage"
