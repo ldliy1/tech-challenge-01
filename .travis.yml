@@ -1,17 +1,27 @@
 services:
   - docker
 
+env:
+  global:
+    SHA="git rev-parse --short HEAD"
+
 jobs:
   include:
     - stage: Test
       script:
       - echo "Test stage"
+      - sed -i -e "s/SHA_COMMIT/${SHA}/" git-commit.json
+      - cat git-commit.json 
     - stage: Build
       script: 
       - echo "Build stage"
-      - sha=$(git rev-parse --short HEAD) && sed -i -e "s/SHA_COMMIT/${sha}/" git-commit.json
-      - cat git-commit.json
-    - stage: Deploy
+      - sed -i -e "s/SHA_COMMIT/${SHA}/" git-commit.json
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker build -t tech-challenge-01 .
+      - docker images
+      - docker tag tech-challenge-01 $DOCKER_USERNAME/tech-challenge-01
+      - docker push $DOCKER_USERNAME/tech-challenge-01
+    - stage: Publish
       script:
-      - echo "Deploy stage"
+      - echo "Publish stage"
       
