@@ -54,7 +54,7 @@ Run the app locally
 > npm start
 ```
 
-Then on any browser you should be able to access http://localhost:8080/ to view "Hello World" and [/status](http://localhost:8080/status) to view the json output.
+Then on any browser you should be able to access [localhost](http://localhost:8080/) to view "Hello World" and [/status](http://localhost:8080/status) to view the json output.
 
 ### Running the container locally
 
@@ -89,6 +89,7 @@ Explain what these tests test and why
 
 ## Limitations around this repository
 
+- Running the app using `npm start` will not update the **/status** page with a sha commit
 - Security principles are **not** being considered due to time constraint
 - No integration testing
 - No linting
