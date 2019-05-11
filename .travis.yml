@@ -6,11 +6,11 @@ jobs:
     - stage: Test
       script:
       - echo "Test stage"
-      - cat git-commit.json
     - stage: Build
       script: 
       - echo "Build stage"
       - sha=$(git rev-parse --short HEAD) && sed -i -e "s/SHA_COMMIT/${sha}/" git-commit.json
+      - cat git-commit.json
     - stage: Deploy
       script:
       - echo "Deploy stage"
